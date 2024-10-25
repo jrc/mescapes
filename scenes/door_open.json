@@ -1,0 +1,29 @@
+{
+    "TimeDuration": 2.0,
+    "Timeline": [
+        {
+            "Comment": "t0 Floor",
+            "Time": 0,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_on": true,
+            "Hue_bri": 30
+        },
+        {
+            "Comment": "t1 Floor",
+            "Time": 1,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_on": true,
+            "Hue_bri": 150
+        },
+        {
+            "Comment": "t2 Floor ",
+            "Time": 2,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_on": true,
+            "Hue_bri": 30
+        }
+    ]
+}

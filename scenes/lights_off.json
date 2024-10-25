@@ -1,0 +1,43 @@
+{
+  "SceneName": "LightsOff",
+  "DisplayName": "Lights Off",
+  "DisplayMode": "dark",
+  "TimeDuration": 0.0,
+  "Timeline": [
+    {
+      "Type": "Hue",
+      "Time": 0,
+      "LightName": "Bed horizontal",
+      "Hue_on": false,
+      "Hue_transitiontime": 0
+    },
+    {
+      "Type": "Hue",
+      "Time": 0,
+      "LightName": "Bed vertical",
+      "Hue_on": false,
+      "Hue_transitiontime": 0
+    },
+    {
+      "Type": "Hue",
+      "Time": 0,
+      "LightName": "Ceiling",
+      "Hue_on": false,
+      "Hue_transitiontime": 0
+    },
+    {
+      "Type": "Hue",
+      "Time": 0,
+      "LightName": "Floor",
+      "Hue_on": false,
+      "Hue_transitiontime": 0
+    },
+    {
+      "Type": "Hue",
+      "Time": 0,
+      "LightName": "Sana",
+      "Hue_on": false,
+      "Hue_transitiontime": 0
+    }
+  ]
+}

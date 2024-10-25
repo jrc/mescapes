@@ -1,0 +1,186 @@
+{
+    "DisplayName": "Welcome",
+    "TimeDuration": 29,
+    "Timeline": [
+        {
+            "Comment": "t0 Bed horizontal",
+            "Time": 0,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_on": false,
+            "Hue_bri": 0,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Comment": "t0 Bed vertical",
+            "Time": 0,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_on": false,
+            "Hue_bri": 0,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Comment": "t0 Ceiling",
+            "Time": 0,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_on": false,
+            "Hue_bri": 0,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Comment": "t0 Floor",
+            "Time": 0,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_on": false,
+            "Hue_bri": 0,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Comment": "t0 Sana",
+            "Time": 0,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_on": false,
+            "Hue_bri": 0,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Time": 0,
+            "Type": "Audio",
+            "File": "./assets/MeScapes Entre_V2.mp3"
+        },
+        {
+            "Comment": "t1-t2 Floor",
+            "Time": 0.3,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "Hue_ct": 370,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Comment": "t1-t2 Floor",
+            "Time": 0.3,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_bri": 76,
+            "Hue_transitiontime": 35
+        },
+        {
+            "Comment": "t2-t3 Floor",
+            "Time": 3.8,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_bri": 100,
+            "Hue_transitiontime": 2
+        },
+        {
+            "Comment": "t3-t4 Bed vertical",
+            "Time": 4,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "Hue_ct": 370,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Comment": "t3-t4 Bed vertical",
+            "Time": 4,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_bri": 100,
+            "Hue_transitiontime": 20
+        },
+        {
+            "Comment": "t5-t6 Bed vertical",
+            "Time": 8,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_bri": 76,
+            "Hue_transitiontime": 17
+        },
+        {
+            "Comment": "t5-t6 Ceiling",
+            "Time": 8,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "Hue_ct": 370,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Comment": "t5-t6 Ceiling",
+            "Time": 8,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_bri": 51,
+            "Hue_transitiontime": 17
+        },
+        {
+            "Comment": "t7-t8 Bed horizontal",
+            "Time": 10.5,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "Hue_ct": 370,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Comment": "t7-t8 Bed horizontal",
+            "Time": 10.5,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_bri": 76,
+            "Hue_transitiontime": 14
+        },
+        {
+            "Comment": "t9-t10 Bed horizontal",
+            "Time": 19.33,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_bri": 120,
+            "Hue_transitiontime": 10
+        },
+        {
+            "Comment": "t9-t10 Bed vertical",
+            "Time": 19.33,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_bri": 120,
+            "Hue_transitiontime": 10
+        },
+        {
+            "Comment": "t9-t10 Ceiling",
+            "Time": 12,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_bri": 120,
+            "Hue_transitiontime": 15
+        },
+        {
+            "Comment": "t11-t12 Sana",
+            "Time": 22.17,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "Hue_ct": 370,
+            "Hue_transitiontime": 0
+        },
+        {
+            "Comment": "t11-t12 Sana",
+            "Time": 22.17,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 25,
+            "Hue_transitiontime": 26
+        }
+    ]
+}

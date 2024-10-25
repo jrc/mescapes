@@ -1,0 +1,473 @@
+{
+    "DisplayName": "Good Morning",
+    "TimeDuration": 496,
+    "Timeline": [
+        {
+            "Comment": "t0 Sana",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_on": false,
+            "Hue_bri": 0,
+            "B_Hue_bri %": 0.0,
+            "B_Hue_xy: x": 0.6,
+            "B_Hue_xy: y": 0.37,
+            "Hue_xy": [
+                0.6,
+                0.37
+            ],
+            "Hue_transitiontime": 0,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "r\u00c3\u00b6tt"
+        },
+        {
+            "Comment": "t0 Floor",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "Hue_xy": [
+                0.54,
+                0.42
+            ]
+        },
+        {
+            "Comment": "t0 Bed Vertical",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "Hue_ct": 500
+        },
+        {
+            "Comment": "t0 Bed Horizontal",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "Hue_ct": 500
+        },
+        {
+            "Comment": "t0 Ceiling",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "Hue_ct": 200
+        },
+        {
+            "Comment": "t0 Audio",
+            "Time": 0.0,
+            "Type": "Audio",
+            "Hue_on": true,
+            "File": "./assets/MeScapes Vakna.mp3"
+        },
+        {
+            "Comment": "t1 Sana",
+            "Time": 12.0,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_on": true,
+            "Hue_bri": 0,
+            "B_Hue_bri %": 0.1,
+            "B_Hue_xy: x": 0.6,
+            "B_Hue_xy: y": 0.37,
+            "Hue_xy": [
+                0.6,
+                0.37
+            ],
+            "Hue_transitiontime": 9,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "r\u00c3\u00b6tt "
+        },
+        {
+            "Comment": "t2 Sana",
+            "Time": 29.23,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 10,
+            "B_Hue_bri %": 0.1,
+            "B_Hue_xy: x": 0.54,
+            "B_Hue_xy: y": 0.42,
+            "Hue_xy": [
+                0.54,
+                0.42
+            ],
+            "Hue_transitiontime": 26,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "orange "
+        },
+        {
+            "Comment": "t2 Floor",
+            "Time": 29.23,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_bri": 25,
+            "B_Hue_bri %": 0.1,
+            "B_Hue_xy: x": 0.54,
+            "B_Hue_xy: y": 0.42,
+            "Hue_xy": [
+                0.54,
+                0.42
+            ],
+            "Hue_transitiontime": 26,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "orange "
+        },
+        {
+            "Comment": "t3 Sana",
+            "Time": 46.67,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 90,
+            "B_Hue_bri %": 0.5,
+            "B_Hue_xy: x": 0.48,
+            "B_Hue_xy: y": 0.44,
+            "Hue_xy": [
+                0.48,
+                0.44
+            ],
+            "Hue_transitiontime": 13,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Gul"
+        },
+        {
+            "Comment": "t3 Floor ",
+            "Time": 46.67,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_bri": 127,
+            "B_Hue_bri %": 0.5,
+            "B_Hue_xy: x": 0.54,
+            "B_Hue_xy: y": 0.42,
+            "Hue_xy": [
+                0.54,
+                0.42
+            ],
+            "Hue_transitiontime": 13,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Orange "
+        },
+        {
+            "Comment": "t4 Sana",
+            "Time": 74.47,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 120,
+            "B_Hue_bri %": 0.6,
+            "B_Hue_xy: x": 0.48,
+            "B_Hue_xy: y": 0.44,
+            "Hue_xy": [
+                0.48,
+                0.44
+            ],
+            "Hue_transitiontime": 15,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Gul"
+        },
+        {
+            "Comment": "t4 Floor",
+            "Time": 74.47,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_bri": 170,
+            "B_Hue_bri %": 1.0,
+            "B_Hue_xy: x": 0.54,
+            "B_Hue_xy: y": 0.42,
+            "Hue_xy": [
+                0.54,
+                0.42
+            ],
+            "Hue_transitiontime": 15,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Orange "
+        },
+        {
+            "Comment": "t4 Bed Vertical ",
+            "Time": 74.47,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_bri": 25,
+            "B_Hue_bri %": 0.1,
+            "Hue_ct": 500,
+            "Hue_transitiontime": 15
+        },
+        {
+            "Comment": "t5 Sana",
+            "Time": 112.1,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 178,
+            "B_Hue_bri %": 0.7,
+            "B_Hue_xy: x": 0.48,
+            "B_Hue_xy: y": 0.44,
+            "Hue_xy": [
+                0.48,
+                0.44
+            ],
+            "Hue_transitiontime": 39,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Gul"
+        },
+        {
+            "Comment": "t5 Bed Vertical",
+            "Time": 112.1,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_bri": 127,
+            "B_Hue_bri %": 0.5,
+            "Hue_ct": 500,
+            "Hue_transitiontime": 39
+        },
+        {
+            "Comment": "t5 floor ",
+            "Time": 112.1,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_bri": 190,
+            "B_Hue_bri %": 0.0,
+            "B_Hue_xy: x": 0.54,
+            "B_Hue_xy: y": 0.42,
+            "Hue_xy": [
+                0.48,
+                0.44
+            ],
+            "Hue_transitiontime": 39,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Orange "
+        },
+        {
+            "Comment": "t5 Bed Horizontal",
+            "Time": 112.1,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_bri": 127,
+            "B_Hue_bri %": 0.5,
+            "Hue_ct": 500,
+            "Hue_transitiontime": 39
+        },
+        {
+            "Comment": "t6 Sana",
+            "Time": 159.5,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 203,
+            "B_Hue_bri %": 0.8,
+            "B_Hue_xy: x": 0.48,
+            "B_Hue_xy: y": 0.44,
+            "Hue_xy": [
+                0.48,
+                0.44
+            ],
+            "Hue_transitiontime": 15,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Gul"
+        },
+        {
+            "Comment": "t6 Bed Vertical",
+            "Time": 159.5,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_bri": 190,
+            "B_Hue_bri %": 1.0,
+            "Hue_ct": 500,
+            "Hue_transitiontime": 15
+        },
+        {
+            "Comment": "t6 Bed Horizontal ",
+            "Time": 159.5,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_bri": 190,
+            "B_Hue_bri %": 1.0,
+            "Hue_ct": 500,
+            "Hue_transitiontime": 15
+        },
+        {
+            "Comment": "t7 Sana",
+            "Time": 226.77,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 229,
+            "B_Hue_bri %": 0.9,
+            "B_Hue_xy: x": 0.48,
+            "B_Hue_xy: y": 0.44,
+            "Hue_xy": [
+                0.48,
+                0.44
+            ],
+            "Hue_transitiontime": 22,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Gul"
+        },
+        {
+            "Comment": "t7 Bed Vertical",
+            "Time": 226.77,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_bri": 200,
+            "B_Hue_bri %": 0.0,
+            "Hue_ct": 500,
+            "Hue_transitiontime": 22
+        },
+        {
+            "Comment": "t7 Bed Horizontal",
+            "Time": 226.77,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_bri": 200,
+            "B_Hue_bri %": 1.0,
+            "Hue_ct": 333,
+            "Hue_transitiontime": 22
+        },
+        {
+            "Comment": "t8 Sana",
+            "Time": 299.77,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 254,
+            "B_Hue_bri %": 1.0,
+            "B_Hue_xy: x": 0.46,
+            "B_Hue_xy: y": 0.44,
+            "Hue_xy": [
+                0.46,
+                0.44
+            ],
+            "Hue_transitiontime": 32,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Light yellow"
+        },
+        {
+            "Comment": "t8 Bed Horizontal",
+            "Time": 299.77,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_bri": 200,
+            "B_Hue_bri %": 1.0,
+            "Hue_ct": 333,
+            "Hue_transitiontime": 32
+        },
+        {
+            "Comment": "t8 Ceiling",
+            "Time": 299.77,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_bri": 50,
+            "B_Hue_bri %": "10%",
+            "Hue_ct": 200,
+            "Hue_transitiontime": 62
+        },
+        {
+            "Comment": "t9 Bed Horizontal",
+            "Time": 365.0,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_bri": 90,
+            "B_Hue_bri %": 1.0,
+            "Hue_ct": 333,
+            "Hue_transitiontime": 32
+        },
+        {
+            "Comment": "t9 Sana",
+            "Time": 365.0,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 254,
+            "B_Hue_bri %": "100%",
+            "B_Hue_xy: x": 0.46,
+            "B_Hue_xy: y": 0.44,
+            "Hue_xy": [
+                0.46,
+                0.44
+            ],
+            "Hue_transitiontime": 10,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Light yellow"
+        },
+        {
+            "Comment": "t9 Ceiling",
+            "Time": 365.0,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_bri": 120,
+            "B_Hue_bri %": "100%",
+            "Hue_ct": 200,
+            "Hue_transitiontime": 100
+        },
+        {
+            "Comment": "t10 Sana",
+            "Time": 400.57,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_bri": 254,
+            "B_Hue_bri %": "100%",
+            "B_Hue_xy: x": 0.46,
+            "B_Hue_xy: y": 0.44,
+            "Hue_xy": [
+                0.46,
+                0.44
+            ],
+            "Hue_transitiontime": 8,
+            "F\u00c3\u00a4rg p\u00c3\u00a5 xy": "Light yellow"
+        },
+        {
+            "Comment": "t10 Bed Vertical",
+            "Time": 400.57,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_bri": 127,
+            "B_Hue_bri %": "50%",
+            "Hue_ct": 200,
+            "Hue_transitiontime": 8
+        },
+        {
+            "Comment": "t10 Bed Horizontal",
+            "Time": 400.57,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_bri": 0,
+            "B_Hue_bri %": "0%",
+            "Hue_ct": 333,
+            "Hue_transitiontime": 8
+        },
+        {
+            "Comment": "t10 Ceiling",
+            "Time": 400.57,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_bri": 150,
+            "B_Hue_bri %": "100%",
+            "Hue_ct": 200,
+            "Hue_transitiontime": 8
+        },
+        {
+            "Comment": "t11 Bed Vertical",
+            "Time": 452.57,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_bri": 127,
+            "B_Hue_bri %": "50%",
+            "Hue_ct": 200,
+            "Hue_transitiontime": 24
+        },
+        {
+            "Comment": "t11 Bed Horizontal",
+            "Time": 452.57,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_bri": 127,
+            "B_Hue_bri %": "50%",
+            "Hue_ct": 200,
+            "Hue_transitiontime": 24
+        },
+        {
+            "Comment": "t11 Ceiling",
+            "Time": 452.57,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_bri": 180,
+            "B_Hue_bri %": "100%",
+            "Hue_ct": 333,
+            "Hue_transitiontime": 24
+        },
+        {
+            "Comment": "t11 Floor ",
+            "Time": 452.57,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_bri": 190,
+            "Hue_ct": 333,
+            "Hue_transitiontime": 24
+        }
+    ]
+}
