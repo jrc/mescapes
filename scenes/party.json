@@ -1,1 +1,76 @@
-{"DisplayName": "Party", "TimeDuration": 0.4, "Timeline": [{"Comment": "t0 Sana", "Time": 0.0, "Type": "Hue", "LightName": "Sana", "Hue_on": true, "Hue_bri": 200, "B_Hue_xy: x": 0.18, "B_Hue_xy: y": 0.08, "Hue_xy": [0.55, 0.3]}, {"Comment": "t0 Floor", "Time": 0.0, "Type": "Hue", "LightName": "Floor", "Hue_on": true, "Hue_bri": 100, "B_Hue_xy: x": 0.5, "B_Hue_xy: y": 0.3, "Hue_xy": [0.5, 0.3]}, {"Comment": "t0 Bed Vertical", "Time": 0.0, "Type": "Hue", "LightName": "Bed vertical", "Hue_on": true, "Hue_bri": 254, "B_Hue_xy: x": 0.5, "B_Hue_xy: y": 0.3, "Hue_xy": [0.56, 0.44]}, {"Comment": "t0 Bed Horizontal", "Time": 0.0, "Type": "Hue", "LightName": "Bed horizontal", "Hue_on": true, "Hue_bri": 150, "B_Hue_xy: x": 0.5, "B_Hue_xy: y": 0.3, "Hue_xy": [0.56, 0.44]}, {"Comment": "t0 Ceiling", "Time": 0.0, "Type": "Hue", "LightName": "Ceiling", "Hue_on": true, "Hue_bri": 80, "B_Hue_xy: x": 0.5, "B_Hue_xy: y": 0.3, "Hue_xy": [0.56, 0.44]}]}
+{
+    "DisplayName": "Party",
+    "TimeDuration": 0.4,
+    "Timeline": [
+        {
+            "Comment": "t0 Sana",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Sana",
+            "Hue_on": true,
+            "Hue_bri": 200,
+            "B_Hue_xy: x": 0.18,
+            "B_Hue_xy: y": 0.08,
+            "Hue_xy": [
+                0.55,
+                0.3
+            ]
+        },
+        {
+            "Comment": "t0 Floor",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Floor",
+            "Hue_on": true,
+            "Hue_bri": 100,
+            "B_Hue_xy: x": 0.5,
+            "B_Hue_xy: y": 0.3,
+            "Hue_xy": [
+                0.5,
+                0.3
+            ]
+        },
+        {
+            "Comment": "t0 Bed Vertical",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Bed vertical",
+            "Hue_on": true,
+            "Hue_bri": 254,
+            "B_Hue_xy: x": 0.5,
+            "B_Hue_xy: y": 0.3,
+            "Hue_xy": [
+                0.56,
+                0.44
+            ]
+        },
+        {
+            "Comment": "t0 Bed Horizontal",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Bed horizontal",
+            "Hue_on": true,
+            "Hue_bri": 150,
+            "B_Hue_xy: x": 0.5,
+            "B_Hue_xy: y": 0.3,
+            "Hue_xy": [
+                0.56,
+                0.44
+            ]
+        },
+        {
+            "Comment": "t0 Ceiling",
+            "Time": 0.0,
+            "Type": "Hue",
+            "LightName": "Ceiling",
+            "Hue_on": true,
+            "Hue_bri": 80,
+            "B_Hue_xy: x": 0.5,
+            "B_Hue_xy: y": 0.3,
+            "Hue_xy": [
+                0.56,
+                0.44
+            ]
+        }
+    ]
+}

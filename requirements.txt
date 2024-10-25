@@ -1,2 +1,4 @@
-dirigera
+python-dotenv
 jsonschema
+dirigera
+soco

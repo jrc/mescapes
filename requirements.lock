@@ -1,3 +1,4 @@
-dirigera==1.2.1
 jsonschema==4.23.0
 python-dotenv==1.0.1
+dirigera==1.2.1
+soco==0.30.5
