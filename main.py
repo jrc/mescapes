@@ -24,12 +24,19 @@ DIRIGERA_TOKEN = os.getenv("DIRIGERA_TOKEN")
 DIRIGERA_ROOM_NAME = os.getenv("DIRIGERA_ROOM_NAME", "Bedroom")
 SONOS_IP_ADDRESS = os.getenv("SONOS_IP_ADDRESS")
 SONOS_PLAYER_NAME = os.getenv("SONOS_PLAYER_NAME", "Bedroom")
-SONOS_VOLUME = os.getenv("SONOS_VOLUME", 50)
+SONOS_VOLUME = os.getenv("SONOS_VOLUME", 25)
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 logger.setLevel(LOG_LEVEL)
+
+
+class TCPServerReuse(socketserver.TCPServer):
+    def __init__(self, server_address, RequestHandlerClass):
+        # Set socket options for address reuse before binding
+        self.allow_reuse_address = True
+        super().__init__(server_address, RequestHandlerClass)
 
 
 class AudioServer(http.server.BaseHTTPRequestHandler):
@@ -94,7 +101,7 @@ class ScenePlayer:
     def start_server(self, port=8000):
         self._http_ip_address = get_host_ip_address()
         self._http_port = port
-        self._http_server = socketserver.TCPServer(("", port), AudioServer)
+        self._http_server = TCPServerReuse(("", port), AudioServer)
         server_thread = threading.Thread(
             target=self._http_server.serve_forever, daemon=True
         )
@@ -111,12 +118,18 @@ class ScenePlayer:
     def _load_schedule_from_scenefile(self, scenefile):
         logger.debug("_load_schedule_from_scenefile({})".format(scenefile.scene_id))
 
-        def _apply_light_data(light, action_dict, data):
+        def _apply_light_data_sync(light, action_dict, data):
             logger.info(
                 "t{:.1f}: {}: {} => {}".format(
                     action_dict["Time"],
                     light.attributes.custom_name,
-                    str({k: v for k, v in action_dict.items() if k.startswith("Hue_")}),
+                    str(
+                        {
+                            k[len("Hue_") :]: v
+                            for k, v in action_dict.items()
+                            if k.startswith("Hue_")
+                        }
+                    ),
                     json.dumps(data),
                 )
             )
@@ -125,6 +138,22 @@ class ScenePlayer:
                 self._hub.patch(route=f"/devices/{light.id}", data=[data])
             except Exception as e:
                 logger.error(e)
+
+        def _apply_light_data(light, action_dict, data):
+            t = threading.Thread(
+                target=_apply_light_data_sync,
+                args=[light, action_dict, data],
+            )
+            t.start()
+
+        def _apply_audio_data_sync(soco, action_dict, audio_url, volume):
+            logger.info(
+                "t{:.3f}: Playing {} at volume {}".format(
+                    action_dict["Time"], audio_url, volume
+                )
+            )
+            soco.volume = volume
+            soco.play_uri(audio_url)
 
         def _perform_action(action_dict):
             logger.debug("t{:.3f}: {}".format(action_dict["Time"], action_dict))
@@ -138,8 +167,10 @@ class ScenePlayer:
                     audio_url = (
                         f"http://{self._http_ip_address}:{self._http_port}/{path}"
                     )
-                    self._sonos_soco.volume = SONOS_VOLUME
-                    self._sonos_soco.play_uri(audio_url)
+
+                    _apply_audio_data_sync(
+                        self._sonos_soco, action_dict, audio_url, SONOS_VOLUME
+                    )
                 else:
                     self._audioproc = subprocess.Popen(["afplay", path])
                     logger.info(self._audioproc)
@@ -149,7 +180,7 @@ class ScenePlayer:
                 # Convert hotel names to home use
                 if light_name == "Ceiling":
                     light_name = "John's Ceiling"
-                elif light_name == "Sana":
+                elif light_name == "Bed vertical":
                     light_name = "John's Bedside"
 
                 for light in self._lights:
