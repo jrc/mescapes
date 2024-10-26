@@ -1,4 +1,5 @@
 import http.server
+import json
 import logging
 import os
 import sched
@@ -23,7 +24,7 @@ DIRIGERA_TOKEN = os.getenv("DIRIGERA_TOKEN")
 DIRIGERA_ROOM_NAME = os.getenv("DIRIGERA_ROOM_NAME", "Bedroom")
 SONOS_IP_ADDRESS = os.getenv("SONOS_IP_ADDRESS")
 SONOS_PLAYER_NAME = os.getenv("SONOS_PLAYER_NAME", "Bedroom")
-SONOS_VOLUME = os.getenv("SONOS_VOLUME", 15)
+SONOS_VOLUME = os.getenv("SONOS_VOLUME", 50)
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
 logging.basicConfig()
@@ -110,6 +111,21 @@ class ScenePlayer:
     def _load_schedule_from_scenefile(self, scenefile):
         logger.debug("_load_schedule_from_scenefile({})".format(scenefile.scene_id))
 
+        def _apply_light_data(light, action_dict, data):
+            logger.info(
+                "t{:.1f}: {}: {} => {}".format(
+                    action_dict["Time"],
+                    light.attributes.custom_name,
+                    str({k: v for k, v in action_dict.items() if k.startswith("Hue_")}),
+                    json.dumps(data),
+                )
+            )
+
+            try:
+                self._hub.patch(route=f"/devices/{light.id}", data=[data])
+            except Exception as e:
+                logger.error(e)
+
         def _perform_action(action_dict):
             logger.debug("t{:.3f}: {}".format(action_dict["Time"], action_dict))
 
@@ -130,68 +146,88 @@ class ScenePlayer:
             elif action_dict.get("LightName"):
                 light_name = action_dict["LightName"]
 
-                hue_effect_dict = {
-                    k.replace("Hue_", ""): v
-                    for k, v in action_dict.items()
-                    if k.startswith("Hue_")
-                }
-
-                dirigera_dict = {"attributes": {}}
-
-                # https://github.com/jsiegenthaler/hueget#on-get-and-set
-                on = hue_effect_dict.get("on")
-                if on != None:
-                    dirigera_dict["attributes"]["isOn"] = on
-
-                # https://github.com/jsiegenthaler/hueget#bri-get-and-set
-                bri = hue_effect_dict.get("bri")
-                if bri != None:
-                    dirigera_dict["attributes"]["lightLevel"] = int(bri / 254 * 99 + 1)
-
-                # https://github.com/jsiegenthaler/hueget#ct-get-and-set
-                ct = hue_effect_dict.get("ct")
-                if ct != None:
-                    dirigera_dict["attributes"]["colorTemperature"] = int(1000000 / ct)
-
-                # https://github.com/jsiegenthaler/hueget#xy-get-and-set
-                xy = hue_effect_dict.get("xy")
-                if xy != None:
-                    x, y = xy
-                    brightness = bri / 254 if bri else 1
-                    hue, saturation, value = cie_xy_to_hsv(x, y, brightness)
-                    dirigera_dict["attributes"]["colorHue"] = int(hue)
-                    dirigera_dict["attributes"]["colorSaturation"] = int(saturation)
-                    dirigera_dict["attributes"]["lightLevel"] = int(value * 99 + 1)
-
-                value = hue_effect_dict.get("transitiontime")
-                if value != None:
-                    transitiontime = value * 100
-                    dirigera_dict["transitionTime"] = transitiontime
+                # Convert hotel names to home use
+                if light_name == "Ceiling":
+                    light_name = "John's Ceiling"
+                elif light_name == "Sana":
+                    light_name = "John's Bedside"
 
                 for light in self._lights:
-                    try:
-                        if (
-                            light_name == "Ceiling"
-                            and light.attributes.custom_name == "Ceiling Lamp"
-                        ) or (
-                            light_name == "Sana"
-                            and light.attributes.custom_name == "John's Bedside"
-                        ):
-                            logger.info(
-                                "t{:.1f}: {}: {} => {}".format(
-                                    action_dict["Time"],
-                                    light_name,
-                                    str(hue_effect_dict),
-                                    str(dirigera_dict),
-                                )
-                            )
+                    if light_name == light.attributes.custom_name:
+                        # Convert Hue effects to DIRIGERA data
 
-                            # print(dirigera_dict)
-                            self._hub.patch(
-                                route=f"/devices/{light.id}", data=[dirigera_dict]
-                            )
-                    except Exception as e:
-                        logger.error(e)
+                        # https://github.com/jsiegenthaler/hueget#on-get-and-set
+                        on = action_dict.get("Hue_on")
+                        if on != None and on == True:
+                            value = on
+                            data = {"attributes": {"isOn": value}}
+                            _apply_light_data(light, action_dict, data)
+
+                        transitionTime = 0
+                        value = action_dict.get("Hue_transitiontime")
+                        if value != None:
+                            transitionTime = value * 100
+
+                        # https://github.com/jsiegenthaler/hueget#bri-get-and-set
+                        bri = action_dict.get("Hue_bri")  # 1-254
+                        if bri != None:
+                            value = int(bri / 254 * 99 + 1)  # 1-100
+                            data = {
+                                "attributes": {"lightLevel": value},
+                                "transitionTime": transitionTime,
+                            }
+                            _apply_light_data(light, action_dict, data)
+
+                        # https://github.com/jsiegenthaler/hueget#ct-get-and-set
+                        ct = action_dict.get("Hue_ct")  # 153-500 (mired)
+                        if ct != None:
+                            value = int(1000000 / ct)  # 2000-6500 (K)
+                            data = {
+                                "attributes": {"colorTemperature": value},
+                                "transitionTime": transitionTime,
+                            }
+                            _apply_light_data(light, action_dict, data)
+
+                        # https://github.com/jsiegenthaler/hueget#xy-get-and-set
+                        xy = action_dict.get("Hue_xy")  # CIE 1931
+                        if xy != None:
+                            if action_dict.get("Hue_bri"):
+                                logger.warning(
+                                    "Scene sets both Hue_bri and Hue_xy; ignoring V from converted HSV"
+                                )
+
+                            x, y = xy
+                            # brightness = bri / 254 if bri else 1
+                            hue, saturation, value = cie_xy_to_hsv(x, y)
+
+                            # data = {
+                            #     "attributes": {
+                            #         "lightLevel": int(value * 99 + 1),
+                            #     },
+                            #     "transitionTime": transitionTime,
+                            # }
+                            # _apply_light_data(light, action_dict, data)
+
+                            colorHue = hue * 360  # 0.0-360.0
+                            colorSaturation = saturation  # 0.0-1.0
+                            data = {
+                                "attributes": {
+                                    "colorHue": colorHue,
+                                    "colorSaturation": colorSaturation,
+                                },
+                                "transitionTime": transitionTime,
+                            }
+                            _apply_light_data(light, action_dict, data)
+
+                        # DIRIGERA doesn't allow setting multiple attributes at once
+                        # so if turning off a light (like at the start of a scene)
+                        # do it last, so the other attributes will take effect first
+                        # https://github.com/jsiegenthaler/hueget#on-get-and-set
+                        on = action_dict.get("Hue_on")
+                        if on != None and on == False:
+                            value = on
+                            data = {"attributes": {"isOn": value}}
+                            _apply_light_data(light, action_dict, data)
             else:
                 logger.warning("Not implemented:", action_dict)
 
@@ -246,9 +282,9 @@ class ScenePlayer:
 
         self.stop()
 
-        # Turn off all the lights
-        for light in self._lights:
-            light.set_light(lamp_on=False)
+        # # Turn off all the lights
+        # for light in self._lights:
+        #     light.set_light(lamp_on=False)
 
 
 if __name__ == "__main__":

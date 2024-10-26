@@ -74,10 +74,12 @@ def cie_xy_to_hsv(x, y, brightness=1.0):
 # Example usage:
 if __name__ == "__main__":
     # x, y = 0.6400, 0.3300  # Red
-    # x, y = 0.3000, 0.6000  # Green
+    x, y = 0.3000, 0.6000  # Green
     # x, y = 0.1500, 0.0600  # Blue
-    x, y = 0.3127, 0.3291  # White
+    # x, y = 0.3127, 0.3291  # White
     brightness = 1.0
+
+    # x, y, brightness = 0.55, 0.3, 200 / 254
 
     print(f"CIE xy ({x}, {y}) with brightness {brightness}")
     r, g, b = cie_xy_to_rgb(x, y, brightness)
